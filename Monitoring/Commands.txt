@@ -1,0 +1,19 @@
+Setup:
+kubectl create namespace monitoring
+
+Step 1: Install Prometheus operator:
+kubectl apply -f prometheus-operator-service-account.yaml -n monitoring
+kubectl apply -f prometheus-operator-cluster-role.yaml -n monitoring
+kubectl apply -f prometheus-operator-cluster-role-binding.yaml -n monitoring
+kubectl apply -f prometheus-operator-deployment.yaml -n monitoring
+
+Step 2: Create a Service Monitor
+kubectl apply -f strimzi-service-monitor.yaml -n monitoring
+
+Step 3: Setup some Prometheus Rules
+kubectl apply -f prometheus-rules.yaml -n monitoring
+
+Step 4: Edit the Kafka Cluster
+Step 4 (a) Add Metrics for Kafka Brokers & Zookeepers
+Step 4 (b) Kafka Exporter
+kubectl apply -f tls-kafka.yaml

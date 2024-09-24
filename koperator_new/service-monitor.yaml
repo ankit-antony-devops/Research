@@ -1,0 +1,35 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kafka-monitor
+  namespace: kafka
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      strimzi.io/name: my-cluster-kafka
+  namespaceSelector:
+    matchNames:
+    - kafka
+  endpoints:
+  - port: tcp-prometheus
+    interval: 10s
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: zookeeper-monitor
+  namespace: kafka
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      strimzi.io/name: my-cluster-zookeeper
+  namespaceSelector:
+    matchNames:
+    - kafka
+  endpoints:
+  - port: tcp-prometheus
+    interval: 10s

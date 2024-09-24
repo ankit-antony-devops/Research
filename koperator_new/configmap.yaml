@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-metrics
+  namespace: kafka
+data:
+  kafka-metrics-config.yml: |
+    lowercaseOutputName: true
+    rules:
+    - pattern: kafka.server<type=(.+), name=(.+)Gauge><>Value
+      name: kafka_server_$1_$2
+      type: GAUGE
+    - pattern: kafka.(\w+)<type=(.+), name=(.+)><>Count
+      name: kafka_$1_$2_$3
+      type: COUNTER
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zookeeper-metrics
+  namespace: kafka
+data:
+  zookeeper-metrics-config.yml: |
+    lowercaseOutputName: true
+    rules:
+    - pattern: "org.apache.ZooKeeperService<name0=(StandaloneServer), name1=(InMemoryDataTree), name2=(.+)><>Value"
+      name: zookeeper_$2
+      type: GAUGE
+    - pattern: "org.apache.ZooKeeperService<name0=(.+), name1=(.+)><>(Count|LatencyPercentiles|Value)"
+      name: zookeeper_$2_$3
+      type: GAUGE

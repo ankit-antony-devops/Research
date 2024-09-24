@@ -1,0 +1,94 @@
+[2024-08-03 08:44:56,091] [INFO] [akka.event.slf4j.Slf4jLogger] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - Slf4jLogger started {}
+SLF4J: A number (4) of logging calls during the initialization phase have been intercepted and are
+SLF4J: now being replayed. These are subject to the filtering rules of the underlying logging system.
+SLF4J: See also http://www.slf4j.org/codes.html#replay
+[2024-08-03 08:44:56,093] [DEBUG] [akka.event.EventStream] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - logger log1-Slf4jLogger started {}
+[2024-08-03 08:44:56,095] [DEBUG] [akka.event.EventStream] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - Default Loggers started {}
+[2024-08-03 08:44:56,095] [DEBUG] [akka.serialization.Serialization(akka://StrimziConsumer)] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - Replacing JavaSerializer with DisabledJavaSerializer, due to `akka.actor.allow-java-serialization = off`. {}
+[2024-08-03 08:44:56,192] [DEBUG] [com.snourian.strimzi.consumer.ConsumerClient$] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - Initializing ConsumerClient actor... {akkaAddress=akka://StrimziConsumer, akkaSource=akka://StrimziConsumer/user, sourceActorSystem=StrimziConsumer}
+[2024-08-03 08:45:00,615] [DEBUG] [akka.io.TcpListener] [] [StrimziConsumer-akka.actor.default-dispatcher-6] - Successfully bound to /0:0:0:0:0:0:0:0:8558 {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=akka://StrimziConsumer/system/IO-TCP/selectors/$a/0, sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:00.615UTC}
+[2024-08-03 08:45:00,919] [INFO] [akka.kafka.internal.SingleSourceLogic] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - [92cb4] Starting. StageActor Actor[akka://StrimziConsumer/system/Materializers/StreamSupervisor-0/$$a#1070238400] {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.default-dispatcher-9, akkaSource=SingleSourceLogic(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:00.916UTC}
+[2024-08-03 08:45:02,308] [DEBUG] [akka.io.TcpListener] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - New connection accepted {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=akka://StrimziConsumer/system/IO-TCP/selectors/$a/0, sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.308UTC}
+[2024-08-03 08:45:02,335] [WARN] [org.apache.kafka.clients.ClientUtils] [] [StrimziConsumer-akka.kafka.default-dispatcher-12] - Couldn't resolve server my-cluster-kafka-bootstrap.kafka:9092 from bootstrap.servers as DNS resolution failed for my-cluster-kafka-bootstrap.kafka {}
+[2024-08-03 08:45:02,411] [WARN] [com.snourian.strimzi.consumer.ConsumerClient$] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - Consumer stopped Failure(org.apache.kafka.common.KafkaException: Failed to construct kafka consumer) {akkaAddress=akka://StrimziConsumer, akkaSource=akka://StrimziConsumer/user, sourceActorSystem=StrimziConsumer}
+[2024-08-03 08:45:02,531] [ERROR] [akka.actor.OneForOneStrategy] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Failed to construct kafka consumer {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=akka://StrimziConsumer/system/kafka-consumer-1, sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.522UTC}
+akka.actor.ActorInitializationException: akka://StrimziConsumer/system/kafka-consumer-1: exception during creation
+	at akka.actor.ActorInitializationException$.apply(Actor.scala:196)
+	at akka.actor.ActorCell.create(ActorCell.scala:661)
+	at akka.actor.ActorCell.invokeAll$1(ActorCell.scala:513)
+	at akka.actor.ActorCell.systemInvoke(ActorCell.scala:535)
+	at akka.dispatch.Mailbox.processAllSystemMessages(Mailbox.scala:295)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:230)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.kafka.common.KafkaException: Failed to construct kafka consumer
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:820)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:631)
+	at akka.kafka.ConsumerSettings$.createKafkaConsumer(ConsumerSettings.scala:237)
+	at akka.kafka.ConsumerSettings$.$anonfun$apply$3(ConsumerSettings.scala:111)
+	at akka.kafka.internal.KafkaConsumerActor.akka$kafka$internal$KafkaConsumerActor$$applySettings(KafkaConsumerActor.scala:460)
+	at akka.kafka.internal.KafkaConsumerActor.preStart(KafkaConsumerActor.scala:437)
+	at akka.actor.Actor.aroundPreStart(Actor.scala:548)
+	at akka.actor.Actor.aroundPreStart$(Actor.scala:548)
+	at akka.kafka.internal.KafkaConsumerActor.aroundPreStart(KafkaConsumerActor.scala:213)
+	at akka.actor.ActorCell.create(ActorCell.scala:641)
+	... 7 common frames omitted
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:88)
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:47)
+	at org.apache.kafka.clients.consumer.KafkaConsumer.<init>(KafkaConsumer.java:735)
+	... 16 common frames omitted
+[2024-08-03 08:45:02,577] [INFO] [akka.actor.RepointableActorRef] [akkaDeadLetter] [StrimziConsumer-akka.actor.default-dispatcher-8] - Message [akka.kafka.internal.KafkaConsumerActor$Internal$Subscribe] from Actor[akka://StrimziConsumer/system/Materializers/StreamSupervisor-0/$$a#1070238400] to Actor[akka://StrimziConsumer/system/kafka-consumer-1#1512497746] was not delivered. [1] dead letters encountered. If this is not an expected behavior then Actor[akka://StrimziConsumer/system/kafka-consumer-1#1512497746] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'. {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.default-dispatcher-9, akkaSource=akka://StrimziConsumer/system/kafka-consumer-1, sourceActorSystem=StrimziConsumer, akkaMessageClass=akka.kafka.internal.KafkaConsumerActor$Internal$Subscribe, akkaTimestamp=08:45:02.569UTC}
+[2024-08-03 08:45:02,584] [INFO] [akka.actor.RepointableActorRef] [akkaDeadLetter] [StrimziConsumer-akka.actor.default-dispatcher-8] - Message [akka.kafka.internal.KafkaConsumerActor$Internal$StopFromStage] from Actor[akka://StrimziConsumer/system/Materializers/StreamSupervisor-0/$$a#1070238400] to Actor[akka://StrimziConsumer/system/kafka-consumer-1#1512497746] was not delivered. [2] dead letters encountered. If this is not an expected behavior then Actor[akka://StrimziConsumer/system/kafka-consumer-1#1512497746] may have terminated unexpectedly. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'. {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.default-dispatcher-9, akkaSource=akka://StrimziConsumer/system/kafka-consumer-1, sourceActorSystem=StrimziConsumer, akkaMessageClass=akka.kafka.internal.KafkaConsumerActor$Internal$StopFromStage, akkaTimestamp=08:45:02.583UTC}
+[2024-08-03 08:45:02,615] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Running CoordinatedShutdown with reason [ActorSystemTerminateReason] {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.default-dispatcher-3, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.615UTC}
+[2024-08-03 08:45:02,628] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [before-service-unbind] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.default-dispatcher-3, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.623UTC}
+[2024-08-03 08:45:02,649] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [service-unbind] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.648UTC}
+[2024-08-03 08:45:02,653] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [service-requests-done] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.650UTC}
+[2024-08-03 08:45:02,653] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [service-stop] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.651UTC}
+[2024-08-03 08:45:02,669] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [before-cluster-shutdown] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.665UTC}
+[2024-08-03 08:45:02,672] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [cluster-sharding-shutdown-region] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.671UTC}
+[2024-08-03 08:45:02,680] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [cluster-leave] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.680UTC}
+[2024-08-03 08:45:02,695] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [cluster-exiting] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.690UTC}
+[2024-08-03 08:45:02,695] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [cluster-exiting-done] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.691UTC}
+[2024-08-03 08:45:02,696] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [cluster-shutdown] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.691UTC}
+[2024-08-03 08:45:02,696] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [before-actor-system-terminate] with [0] tasks {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.693UTC}
+[2024-08-03 08:45:02,696] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-9] - Performing phase [actor-system-terminate] with [1] tasks. {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.694UTC}
+[2024-08-03 08:45:02,723] [DEBUG] [akka.actor.CoordinatedShutdown] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - Performing task [terminate-system] in CoordinatedShutdown phase [actor-system-terminate] {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-4, akkaSource=CoordinatedShutdown(akka://StrimziConsumer), sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.722UTC}
+[2024-08-03 08:45:02,727] [DEBUG] [akka.event.EventStream] [] [StrimziConsumer-akka.actor.default-dispatcher-3] - shutting down: StandardOutLogger {akkaAddress=akka://StrimziConsumer, sourceThread=StrimziConsumer-akka.actor.internal-dispatcher-10, akkaSource=EventStream, sourceActorSystem=StrimziConsumer, akkaTimestamp=08:45:02.722UTC}
+[ERROR] [08/03/2024 08:45:02.804] [StrimziConsumer-akka.actor.default-dispatcher-6] [akka.actor.ActorSystemImpl(StrimziConsumer)] Could not materialize handling flow for IncomingConnection(/10.1.3.32:8558,/10.1.0.1:36592,Flow(FlowShape(IncomingTCP.in(1882960927),GraphStages$Detacher.out(302854028))))
+java.lang.IllegalStateException: cannot create children while terminating or terminated
+	at akka.actor.dungeon.Children.makeChild(Children.scala:291)
+	at akka.actor.dungeon.Children.attachChild(Children.scala:52)
+	at akka.actor.dungeon.Children.attachChild$(Children.scala:51)
+	at akka.actor.ActorCell.attachChild(ActorCell.scala:410)
+	at akka.stream.impl.ExtendedActorMaterializer.actorOf(ActorMaterializerImpl.scala:74)
+	at akka.stream.impl.GraphStageIsland.onIslandReady(PhasedFusingActorMaterializer.scala:819)
+	at akka.stream.impl.PhasedFusingActorMaterializer.materialize(PhasedFusingActorMaterializer.scala:550)
+	at akka.stream.impl.PhasedFusingActorMaterializer.materialize(PhasedFusingActorMaterializer.scala:448)
+	at akka.stream.impl.PhasedFusingActorMaterializer.materialize(PhasedFusingActorMaterializer.scala:440)
+	at akka.stream.scaladsl.RunnableGraph.run(Flow.scala:741)
+	at akka.http.scaladsl.HttpExt.$anonfun$bindAndHandle$1(Http.scala:249)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$31.onPush(Ops.scala:1400)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:495)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:390)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:769)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:784)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+

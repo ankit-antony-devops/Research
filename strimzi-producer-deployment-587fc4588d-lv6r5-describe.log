@@ -1,0 +1,63 @@
+Name:             strimzi-producer-deployment-587fc4588d-lv6r5
+Namespace:        confluent
+Priority:         0
+Service Account:  default
+Node:             docker-desktop/192.168.65.3
+Start Time:       Thu, 01 Aug 2024 00:31:09 +0100
+Labels:           app=strimzi-producer
+                  pod-template-hash=587fc4588d
+Annotations:      <none>
+Status:           Pending
+IP:               10.1.3.34
+IPs:
+  IP:           10.1.3.34
+Controlled By:  ReplicaSet/strimzi-producer-deployment-587fc4588d
+Containers:
+  strimzi-producer:
+    Container ID:   
+    Image:          nrsina/strimzi-producer:v1
+    Image ID:       
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ErrImageNeverPull
+    Ready:          False
+    Restart Count:  0
+    Liveness:       http-get http://:http/health delay=3s timeout=1s period=15s #success=1 #failure=3
+    Readiness:      http-get http://:8080/health delay=3s timeout=1s period=15s #success=1 #failure=3
+    Environment:
+      SP_BOOTSTRAP_SERVERS:  my-cluster-kafka-bootstrap.kafka:9092
+      SP_KAFKA_TOPIC:        my-topic
+      SP_SLEEP_TIME_MS:      2000
+      SP_BUFFER_SIZE:        5
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-nj65v (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-nj65v:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason             Age                 From     Message
+  ----     ------             ----                ----     -------
+  Warning  ErrImageNeverPull  9h (x314 over 24h)  kubelet  Container image "nrsina/strimzi-producer:v1" is not present with pull policy of Never
+  Warning  Failed             9h (x314 over 24h)  kubelet  Error: ErrImageNeverPull
+  Normal   SandboxChanged     42m                 kubelet  Pod sandbox changed, it will be killed and re-created.
+  Warning  Failed             39m (x12 over 41m)  kubelet  Error: ErrImageNeverPull
+  Warning  ErrImageNeverPull  16m (x95 over 41m)  kubelet  Container image "nrsina/strimzi-producer:v1" is not present with pull policy of Never
+  Normal   SandboxChanged     15m                 kubelet  Pod sandbox changed, it will be killed and re-created.
+  Warning  Failed             13m (x12 over 15m)  kubelet  Error: ErrImageNeverPull
+  Warning  ErrImageNeverPull  30s (x71 over 15m)  kubelet  Container image "nrsina/strimzi-producer:v1" is not present with pull policy of Never

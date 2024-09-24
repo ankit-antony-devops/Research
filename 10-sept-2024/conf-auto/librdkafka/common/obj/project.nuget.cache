@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "PueJPpfEE5XhM9gTJUOoia4WpA7Z/1FAVGq/COiV+KG55ma1lvnL3FU1kirEzSwrqlbzIetObTgx/nVd/jMYRg==",
+  "success": false,
+  "projectFilePath": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\common.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\' doesn't exist.",
+      "libraryId": "Confluent.Kafka"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\' doesn't exist.",
+      "libraryId": "Newtonsoft.Json"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\' doesn't exist.",
+      "libraryId": "prometheus-net"
+    }
+  ]
+}

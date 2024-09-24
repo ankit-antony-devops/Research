@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "restore": {
+    "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\sum-application\\sum-application.csproj": {}
+  },
+  "projects": {
+    "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\common.csproj",
+        "projectName": "common",
+        "projectPath": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\common.csproj",
+        "packagesPath": "C:\\Users\\Ankit Antony\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ankit Antony\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "prometheus-net": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.425\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\sum-application\\sum-application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\sum-application\\sum-application.csproj",
+        "projectName": "sum-application",
+        "projectPath": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\sum-application\\sum-application.csproj",
+        "packagesPath": "C:\\Users\\Ankit Antony\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\sum-application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ankit Antony\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\common.csproj": {
+                "projectPath": "c:\\Users\\Ankit Antony\\Downloads\\x00193216_Research\\10-sept-2024\\conf-auto\\librdkafka\\common\\common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Confluent.SchemaRegistry.Serdes.Avro": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.CommandLine": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.FASTER.Core": {
+              "target": "Package",
+              "version": "[2.6.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.425\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
